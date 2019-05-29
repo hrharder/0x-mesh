@@ -1,0 +1,15 @@
+FROM frolvlad/alpine-glibc
+
+WORKDIR /usr/mesh
+
+COPY mesh-linux-amd64 .
+COPY forever.sh .
+
+EXPOSE 8080
+
+RUN chmod +x ./mesh-linux-amd64
+RUN chmod +x ./forever.sh
+
+RUN apk add ca-certificates
+
+ENTRYPOINT ./forever.sh
