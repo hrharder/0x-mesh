@@ -241,9 +241,9 @@ func SignOrder(signer ethereum.Signer, order *Order) (*SignedOrder, error) {
 }
 
 // SignTestOrder signs the 0x order with the local test signer
-func SignTestOrder(order *Order) (*SignedOrder, error) {
+func SignTestOrder(order Order) (*SignedOrder, error) {
 	testSigner := ethereum.NewTestSigner()
-	signedOrder, err := SignOrder(testSigner, order)
+	signedOrder, err := SignOrder(testSigner, &order)
 	if err != nil {
 		return nil, err
 	}

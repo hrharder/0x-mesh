@@ -76,7 +76,7 @@ func newTestServerAndClient(t *testing.T, rpcHandler *dummyRPCHandler) (*Server,
 	return server, client
 }
 
-var testOrder = &zeroex.Order{
+var testOrder = zeroex.Order{
 	MakerAddress:          constants.GanacheAccount0,
 	TakerAddress:          constants.NullAddress,
 	SenderAddress:         constants.NullAddress,

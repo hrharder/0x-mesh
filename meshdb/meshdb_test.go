@@ -22,7 +22,7 @@ func TestOrderCRUDOperations(t *testing.T) {
 
 	makerAddress := constants.GanacheAccount0
 	salt := big.NewInt(1548619145450)
-	o := &zeroex.Order{
+	o := zeroex.Order{
 		MakerAddress:          makerAddress,
 		TakerAddress:          constants.NullAddress,
 		SenderAddress:         constants.NullAddress,

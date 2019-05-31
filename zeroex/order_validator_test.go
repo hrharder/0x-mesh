@@ -161,7 +161,7 @@ func TestCalculateRemainingFillableTakerAmount(t *testing.T) {
 	order.TakerAssetAmount = takerAssetAmount
 	order.MakerAssetAmount = makerAssetAmount
 	order.MakerFee = makerFee
-	signedOrder, err := SignTestOrder(&order)
+	signedOrder, err := SignTestOrder(order)
 	require.NoError(t, err)
 
 	orderHash, err := order.ComputeOrderHash()
@@ -278,35 +278,35 @@ func TestCalculateRemainingFillableTakerAmount(t *testing.T) {
 
 func signedOrderWithCustomMakerAssetAmount(t *testing.T, signedOrder SignedOrder, makerAssetAmount *big.Int) SignedOrder {
 	signedOrder.MakerAssetAmount = makerAssetAmount
-	signedOrderWithSignature, err := SignTestOrder(&signedOrder.Order)
+	signedOrderWithSignature, err := SignTestOrder(signedOrder.Order)
 	require.NoError(t, err)
 	return *signedOrderWithSignature
 }
 
 func signedOrderWithCustomTakerAssetAmount(t *testing.T, signedOrder SignedOrder, takerAssetAmount *big.Int) SignedOrder {
 	signedOrder.TakerAssetAmount = takerAssetAmount
-	signedOrderWithSignature, err := SignTestOrder(&signedOrder.Order)
+	signedOrderWithSignature, err := SignTestOrder(signedOrder.Order)
 	require.NoError(t, err)
 	return *signedOrderWithSignature
 }
 
 func signedOrderWithCustomMakerAssetData(t *testing.T, signedOrder SignedOrder, makerAssetData []byte) SignedOrder {
 	signedOrder.MakerAssetData = makerAssetData
-	signedOrderWithSignature, err := SignTestOrder(&signedOrder.Order)
+	signedOrderWithSignature, err := SignTestOrder(signedOrder.Order)
 	require.NoError(t, err)
 	return *signedOrderWithSignature
 }
 
 func signedOrderWithCustomTakerAssetData(t *testing.T, signedOrder SignedOrder, takerAssetData []byte) SignedOrder {
 	signedOrder.TakerAssetData = takerAssetData
-	signedOrderWithSignature, err := SignTestOrder(&signedOrder.Order)
+	signedOrderWithSignature, err := SignTestOrder(signedOrder.Order)
 	require.NoError(t, err)
 	return *signedOrderWithSignature
 }
 
 func signedOrderWithCustomExpirationTimeSeconds(t *testing.T, signedOrder SignedOrder, expirationTimeSeconds *big.Int) SignedOrder {
 	signedOrder.ExpirationTimeSeconds = expirationTimeSeconds
-	signedOrderWithSignature, err := SignTestOrder(&signedOrder.Order)
+	signedOrderWithSignature, err := SignTestOrder(signedOrder.Order)
 	require.NoError(t, err)
 	return *signedOrderWithSignature
 }

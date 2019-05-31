@@ -25,7 +25,7 @@ type clientEnvVars struct {
 	EthereumRPCURL string `envvar:"ETHEREUM_RPC_URL"`
 }
 
-var testOrder = &zeroex.Order{
+var testOrder = zeroex.Order{
 	MakerAddress:          constants.GanacheAccount0,
 	TakerAddress:          constants.NullAddress,
 	SenderAddress:         constants.NullAddress,
@@ -58,7 +58,7 @@ func main() {
 	}
 
 	signer := ethereum.NewEthRPCSigner(ethClient)
-	signedTestOrder, err := zeroex.SignOrder(signer, testOrder)
+	signedTestOrder, err := zeroex.SignOrder(signer, &testOrder)
 	if err != nil {
 		log.WithError(err).Fatal("could not sign 0x order")
 	}

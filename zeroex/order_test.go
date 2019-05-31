@@ -40,7 +40,7 @@ func TestGenerateOrderHash(t *testing.T) {
 func TestSignOrder(t *testing.T) {
 	fakeExchangeContractAddress := common.HexToAddress("0x1dc4c1cefef38a777b15aa20260a54e584b16c48")
 
-	order := &Order{
+	order := Order{
 		MakerAddress:          constants.GanacheAccount0,
 		TakerAddress:          constants.NullAddress,
 		SenderAddress:         constants.NullAddress,
