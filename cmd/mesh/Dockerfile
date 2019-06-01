@@ -5,7 +5,8 @@ WORKDIR /usr/mesh
 COPY mesh-linux-amd64 .
 COPY forever.sh .
 
-EXPOSE 8080
+ENV RPC_PORT=60557
+EXPOSE 60557
 
 RUN chmod +x ./mesh-linux-amd64
 RUN chmod +x ./forever.sh
